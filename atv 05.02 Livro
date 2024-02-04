@@ -1,34 +1,18 @@
-class Livro{
-	private String Titulo;
-	private String Autor;
-	private int Ano;
+public class Livro {
+    public String titulo;
+    public String autor;
+    public int anoDePublicacao;
+  
+    public Livro(String titulo, String autor, int anoDePublicacao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anoDePublicacao = anoDePublicacao;
+    }
 
-    Livro(String Titulo, String Autor, int Ano){
-        this.Titulo = Titulo;
-        this.Autor = Autor;
-        this.Ano = Ano;
+    public static void main(String[] args) {
+        Livro livro = new Livro("colecionador de lagrimas", "George owel", 1945);
+        System.out.println("Título: " + livro.titulo);
+        System.out.println("Autor: " + livro.autor);
+        System.out.println("Ano de Publicação: " + livro.anoDePublicacao);
     }
-    
-    public String getTitulo(){
-        return Titulo;
-    }
-    public String getAutor(){
-        return Autor;
-    }
-    public int getAno(){
-        return Ano;
-    }
-    
-        public static void main(String[] args) {
-
-           Livro livro = new Livro("colecionador de lágrimas", "George ower", 1945);
-            
-            System.out.println("Titulo: " + livro.getTitulo());
-            System.out.println("Autor: " + livro.getAutor());
-            System.out.println("Ano: " + livro.getAno());
-    
-            
-        }
-    
-    
 }
