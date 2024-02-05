@@ -9,7 +9,7 @@ class Carro {
     private int velocidade;
 
     // Método construtor da classe para inicializar os atributos
-    Pessoa(String marca, String modelo, int ano, int cor, int velocidade) {
+    Carro(String marca, String modelo, int ano, int cor, int velocidade) {
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
