@@ -1,0 +1,42 @@
+package Numero;
+
+import java.util.Scanner;
+
+public class Numero {
+
+    int n;
+
+    Numero(int n) {
+        this.n = n;
+    }
+
+    public static boolean éImpar(int n) {
+        if (n % 2 != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public static boolean éPositivo(int n) {
+    	if (n<0) {
+    		return false;
+    	}
+    	else {
+    		return true;
+    	}
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Se deseja saber se o número é ímpar ou par, digite o número: ");
+        int n = scanner.nextInt();
+        System.out.println(éImpar(n));
+        
+        System.out.println("Se deseja saber se o número é positivo ou negativo, digite o número: ");
+        n = scanner.nextInt();
+        System.out.println(éPositivo(n));
+        
+    }
+}
