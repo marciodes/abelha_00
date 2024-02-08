@@ -1,0 +1,42 @@
+package Alimento;
+
+import java.util.Scanner;
+
+public class Alimento {
+    private String nome;
+    private double kcal;
+    
+    public Alimento(String nome, double kcal){
+        this.nome = nome;
+        this.kcal = kcal;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    
+    public double getKcal(){
+        return kcal;
+    }
+    
+    public void setKcal(double kcal){
+        this.kcal = kcal;
+    }
+    
+    public static void main(String[] args) {
+        Alimento alimento1 = new Alimento("pizza", 300);
+        System.out.println("nome:" + alimento1.getNome());
+        System.out.println("kcal: " + alimento1.getKcal());
+        
+        Alimento alimento2 = new Alimento("maçã", 50);
+        
+        alimento2.setNome("maçã");
+        alimento2.setKcal(50);
+        System.out.println("nome atualizado:" + alimento2.getNome());
+        System.out.println("kcal atualizado: " + alimento2.getKcal());
+    }
+}
