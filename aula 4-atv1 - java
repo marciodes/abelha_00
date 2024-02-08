@@ -1,0 +1,47 @@
+package Funcionario;
+
+import java.util.Scanner;
+
+public class Funcionario {
+	private String nome;
+	private double salario;
+	private int percentual;
+	
+	Funcionario(String nome, double salario, int percentual){
+		this.nome = nome;
+		this.salario = salario;
+		this.percentual = percentual;
+	}
+	
+	public String getNome(){
+		return nome;
+	}
+	
+	public double getSalario(){
+		return salario;
+	}
+	
+	public double aumentarSalario(double salario,int percentual) {
+		return ((salario * percentual) / 100) + salario;
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Digite o nome do funcionario");
+		String nome = scanner.nextLine();
+		
+		System.out.println("Digite o salario");
+		double salario = scanner.nextDouble();
+		
+		System.out.println("Digite o percentual de aumento");
+		int percentual = scanner.nextInt();
+		
+		Funcionario funcionario = new Funcionario(nome, salario, percentual);
+		
+		double novoSalario = funcionario.aumentarSalario(salario, percentual);
+		
+		System.out.println("Novo salario: " + novoSalario);
+	}
+
+}
