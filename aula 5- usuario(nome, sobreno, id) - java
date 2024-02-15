@@ -1,0 +1,39 @@
+package Usuario;
+
+import java.util.ArrayList;
+
+public class Usuario {
+    public String id;
+    public String nome;
+    public String sobrenome;
+
+    Usuario(String id, String nome, String sobrenome) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+    }
+
+    public String toString() {
+        return "id: " + id + "\nnome: " + nome + "\nsobrenome:" + sobrenome;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<String> listaUsuario = new ArrayList<>();
+        listaUsuario.add("238745");
+        listaUsuario.add("fabricio");
+        listaUsuario.add("Dos Santos");
+
+        Usuario usuario = new Usuario(listaUsuario.get(0), listaUsuario.get(1), listaUsuario.get(2));
+
+        System.out.println(usuario.toString());
+        
+        listaUsuario.remove("fabricio");
+
+        System.out.println("\nElementos da lista: " + listaUsuario + "\n");
+        
+        listaUsuario.add("Gustavo");
+      
+        
+        System.out.println("Após remover 'fabricio' e adicionar 'Gustavo': " + listaUsuario);
+    }
+}
