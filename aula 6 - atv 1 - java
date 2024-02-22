@@ -1,0 +1,68 @@
+package Pessoa;
+
+import java.util.Scanner;
+
+public class Pessoa {
+	public String nome;
+	public int idade;
+	public double peso, altura;
+
+	Pessoa(String nome, int idade, double peso, double altura){
+		this.nome = nome;
+		this.idade = idade;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	
+	public void envelhecer() {
+		System.out.println("o usuário fez aniversário hoje, está um ano mais velho");
+	}
+	
+	
+	public void massacorporal(double peso) {
+		if(peso>80) {
+			System.out.println("o usuário está abaixo do peso");
+		}
+		
+		else{
+			System.out.println("o usuário está acima do peso");
+		}
+	
+		
+	}
+	
+	public int crescer(int idade, double altura) {
+		if(idade<21) {
+			System.out.println("a altura do usuario é " + ((idade * 5) + altura) + "cm");
+		}
+		else {
+			System.out.println("a altura do usuario é " + ((21 * 5) + altura) + "cm");
+		}
+		return idade;
+		
+	
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("digite nome do usuário");
+		String nome = scanner.next();
+		System.out.println("digite a idade do usuário");
+		int idade = scanner.nextInt();
+		System.out.println("digite o peso do usuário");
+		double peso = scanner.nextInt();
+		System.out.println("digite a altura do usuário");
+		double altura = scanner.nextInt();
+		
+		Pessoa pessoa = new Pessoa(nome, idade, peso, altura);
+		
+		
+		pessoa.massacorporal(altura);
+		pessoa.envelhecer();
+		pessoa.crescer(idade, altura);
+		
+	
+	}
+
+}
