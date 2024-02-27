@@ -1,0 +1,30 @@
+public class ContaInvestimento {
+    private double saldo;
+    private double taxaJuros;
+
+    public ContaInvestimento(double saldoInicial, double taxaJuros) {
+        this.saldo = saldoInicial;
+        this.taxaJuros = taxaJuros;
+    }
+
+    public void adicioneJuros() {
+        double juros = saldo * taxaJuros / 100;
+        saldo += juros;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public static void main(String[] args) {
+        ContaInvestimento conta = new ContaInvestimento(1000, 10);
+
+        System.out.println("Saldo inicial: " + conta.getSaldo());
+
+        for (int i = 0; i < 5; i++) {
+            conta.adicioneJuros();
+        }
+
+        System.out.println("Saldo após 5 vezes de adição de juros: " + conta.getSaldo());
+    }
+}
