@@ -1,0 +1,34 @@
+package compra;
+
+import java.util.Scanner;
+
+public class compra {
+       public int v;
+	
+       
+       compra(int v){
+    	   this.v = v;
+       }
+       
+       
+public void calcular(int v) {
+	if(v>300 && v<500) {
+		System.out.println("o valor da compra é" + (v*95)/100);
+	}
+	if(v>500 && v<1000) {
+		System.out.println("o valor da compra é" + (v*90)/100);
+	}
+	if(v>1000) {
+		System.out.println("o valor da compra é" + (v*85)/100);
+	}
+}
+
+
+public static void main(String[] args) {
+	Scanner scanner = new Scanner(System.in);
+	System.out.println("digite o valor da compra");
+	int v = scanner.nextInt();
+	compra compra1 = new compra(v);
+	compra1.calcular(v);
+}
+}
