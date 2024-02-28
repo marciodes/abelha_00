@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void compra(){
+	int n;
+	int v;
+	
+printf("quantas compras voce realizou esse mes?: ");
+scanf("%d", &n);
+printf("qual eh o valor da compra que voce esta realizando: ");
+scanf("%d", &v);
+system("cls");
+
+if (n<3 && v<500){
+	printf("1o valor da compra eh %d", v);
+}
+if (n<3 && v>500){
+	printf("2o valor da compra eh %d", (v*90)/100);
+}
+if(n>3 && v<500){
+		printf("3o valor da compra eh %d", (v*93)/100);
+}
+if(n>3 && v>500){
+		printf("4o valor da compra eh %d", (v*83)/100);
+}	
+
+}
+
+int main(int argc, char *argv[]) {
+compra();
+}
