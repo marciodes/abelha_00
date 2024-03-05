@@ -1,0 +1,52 @@
+package atv;
+
+public class Turma {
+    private Aluno[] alunos;
+
+    public Turma(Aluno[] alunos) {
+        this.alunos = alunos;
+    }
+
+    public double calcularMediaNotas() {
+        double soma = 0;
+        int n = 0;
+
+        for (Aluno aluno : alunos) {
+            double[] notas = aluno.getNotas();
+            for (double nota : notas) {
+                soma += nota;
+                n++;
+            }
+        }
+
+        return soma / n;
+    }
+
+    public Aluno encontrarAlunoMaiorIdade() {
+        Aluno alunoMaiorIdade = alunos[0];
+
+        for (Aluno aluno : alunos) {
+            if (aluno.getIdade() > alunoMaiorIdade.getIdade()) {
+                alunoMaiorIdade = aluno;
+            }
+        }
+
+        return alunoMaiorIdade;
+    }
+
+    public static void main(String[] args) {
+        Aluno aluno1 = new Aluno("João", 20, new double[]{8.5, 7.0, 9.0});
+        Aluno aluno2 = new Aluno("Maria", 22, new double[]{6.5, 8.0, 7.5});
+        Aluno aluno3 = new Aluno("Pedro", 21, new double[]{9.0, 9.5, 8.5});
+
+        Aluno[] alunos = {aluno1, aluno2, aluno3};
+
+        Turma turma = new Turma(alunos);
+
+        System.out.println("Média das notas da turma: " + turma.calcularMediaNotas());
+
+        Aluno alunoMaiorIdade = turma.encontrarAlunoMaiorIdade();
+        System.out.println("Aluno com maior idade: " + alunoMaiorIdade.getNome());
+    }
+}
+
