@@ -1,0 +1,36 @@
+package vetor;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Somaint {
+	public int num = 0;
+	
+	Somaint(int num){
+		this.num = num;
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<Integer> listanum = new ArrayList<>();
+		
+		System.out.println("quantas posições você deseja adicionar no arraylist");
+		int n = scanner.nextInt();
+		
+		for(int i = 0; i<n; i++) {
+			System.out.println("digite o " + i+1 + " valor");
+			listanum.add(scanner.nextInt());
+		}
+		int sum = 0;
+		
+		for(int i : listanum) {
+			sum +=i;
+		}
+		
+		System.out.println("a soma dos numero da arraylist é igual a: " + sum);
+		   
+	}
+
+	
+}
