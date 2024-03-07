@@ -1,0 +1,23 @@
+package vetor;
+
+import java.util.Scanner;
+
+public class Maior {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int[] num = new int[5];
+		int maior = 0;
+
+		for(int i = 0; i<5; i++) {
+			System.out.println("digite o valor da posição " + (i+1) + " do vetor");
+			num[i] = scanner.nextInt();
+			if(num[i]>maior) {
+				maior = num[i];
+			}
+		}
+		
+		System.out.println("o maior número deigitado foi o: " + maior );
+	}
+
+}
