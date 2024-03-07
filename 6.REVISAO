@@ -1,0 +1,45 @@
+package vetor;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class procurar {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<Integer> lista = new ArrayList<>();
+		
+		for(int i = 0; i< 5; i++) {
+			System.out.println("digite o " + i+1 + " valor");
+			lista.add(scanner.nextInt());
+		}
+		
+		int escolha = 0;
+		do {
+			System.out.println("o que você deseja?\n1-descobrir se um numero está presente na lista\n0-encerrar o programa");
+		    escolha = scanner.nextInt();
+			
+		    switch(escolha) {
+		    case 1:
+		    	System.out.println("digite o valor que você deseja encontrar");
+		    	int c = scanner.nextInt();
+		    	
+		    	for(int i : lista) {
+		    		if(i==c) {
+		    			System.out.println("o valor se encontra na lista");
+		    		}
+		    		else {
+		    			System.out.println("desculpe-me, mas o valor não se encontra na lista");
+		    		}
+		    	
+		    	}
+		    		
+		    		break;
+		    }
+			
+		}while(escolha!=0);
+		
+
+	}
+
+}
