@@ -1,0 +1,32 @@
+package vetor;
+
+import java.util.ArrayList;
+
+public class Pessoa {
+	 public String nome;
+	 
+	 Pessoa(String nome){
+		 this.nome = nome;
+	 }
+	 
+
+	public static void main(String[] args) {
+		   ArrayList<String> pessoa = new ArrayList<>();
+		   
+		   pessoa.add("Grabriel");
+		   pessoa.add("Silvio");
+		   pessoa.add("Guilherme");
+		   
+		   System.out.println(pessoa);
+		   
+		   pessoa.remove(2);
+		   
+		   System.out.println(pessoa);
+		   
+		   pessoa.add("fudencio");
+		   
+		   System.out.println(pessoa);
+
+	}
+
+}
