@@ -1,0 +1,43 @@
+package sla;
+
+import java.util.Scanner;
+
+public class Pessoa {
+
+	public String nome;
+	public int idade;
+	
+	Pessoa(String nome, int idade){
+		this.nome = nome;
+		this.idade = idade;
+	}
+}
+
+class Aluno extends Pessoa {
+	
+	Aluno(String nome, int idade) {
+		super(nome, idade);
+		
+	}
+
+	public void imprimir(String nome, int idade, int matricula) {
+		System.out.println("nome: " + nome + "\nidade: " + idade + "\nmatricula: " + matricula);
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("digite o nome da pessoa");
+		String nome = scanner.next();
+		System.out.println("digite a idade da pessoa");
+		int idade = scanner.nextInt();
+		System.out.println("digite a matricula da pessoa");
+		int matricula = scanner.nextInt();
+		
+		Aluno aluno = new Aluno(nome, idade);
+		
+		aluno.imprimir(nome, idade, matricula);
+		
+	}
+
+}
