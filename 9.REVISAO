@@ -1,0 +1,76 @@
+class Veiculo {
+    private String marca;
+    private String modelo;
+
+    public Veiculo(String marca, String modelo) {
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+}
+
+class Carro extends Veiculo {
+    private int cilindrada;
+
+    public Carro(String marca, String modelo, int cilindrada) {
+        super(marca, modelo);
+        this.cilindrada = cilindrada;
+    }
+
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    public void setCilindrada(int cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+}
+
+class Moto extends Veiculo {
+    private int cilindrada;
+
+    public Moto(String marca, String modelo, int cilindrada) {
+        super(marca, modelo);
+        this.cilindrada = cilindrada;
+    }
+
+    public int getCilindrada() {
+        return cilindrada;
+    }
+
+    public void setCilindrada(int cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Carro carro = new Carro("Toyota", "Corolla", 2000);
+        Moto moto = new Moto("Honda", "CBR 500", 500);
+
+        System.out.println("Carro:");
+        System.out.println("Marca: " + carro.getMarca());
+        System.out.println("Modelo: " + carro.getModelo());
+        System.out.println("Cilindrada: " + carro.getCilindrada());
+
+        System.out.println("\nMoto:");
+        System.out.println("Marca: " + moto.getMarca());
+        System.out.println("Modelo: " + moto.getModelo());
+        System.out.println("Cilindrada: " + moto.getCilindrada());
+    }
+}
