@@ -1,75 +1,69 @@
 package revisao;
 
 public class revisao {
-	
-	public  int andaratual;
-	public  int totaldeandares;
-	public  int capacidade;
-	public  int ppresentes;
-	
-	revisao(int andaratual, int totaldeandares, int capacidade, int ppresentes){
-		this.andaratual = andaratual;
-		this.totaldeandares = totaldeandares;
-		this.capacidade = capacidade;
-		this.ppresentes = ppresentes;
+
+
+public int andaratual;
+public int totaldeandares;
+public int capacidade;
+public int ppresentes;
+
+revisao(int andaratual, int totaldeandares, int capacidade, int ppresentes) {
+	this.andaratual = andaratual;
+	this.totaldeandares = totaldeandares;
+	this.capacidade = capacidade;
+	this.ppresentes = ppresentes;
+}
+
+public void entrar() {
+	if (ppresentes < 5) {
+		ppresentes++;
+		System.out.println("a pessoa foi adicionada ao elevador");
+	} else {
+		System.out.println("o elevador já atingiu a capacidade máxima de 5 pessoas");
 	}
-	
-	public void entrar(int ppresentes, int capacidade) {
-		if(ppresentes <= capacidade) {
-			System.out.println("a pessoa foi adicionada ao elevador");
-		}
-		else{
-			System.out.println("o elevador já atingiu a capacidade máxima");
-		}
+}
+
+public void sair() {
+	if (ppresentes > 0) {
+		ppresentes--;
+		System.out.println("a pessoa foi retirada do elevador");
+	} else {
+		System.out.println("o elevador já está vazio");
 	}
-	
-	public void sair(int ppresentes) {
-		if(ppresentes>0) {
-			ppresentes--;
-			System.out.println("a pessoa foi retirada do elevador");
-		}
-		else {
-			System.out.println("o elevador já está vazio");
-		}
+}
+
+public void subir() {
+	if (andaratual < totaldeandares && andaratual < 5) {
+		andaratual++;
+		System.out.println("o elevador subiu um andar");
+	} else {
+		System.out.println("o elevador já chegou ao último andar ou atingiu a altura máxima de 5 andares");
 	}
-	
-	public void subir(int andaratual, int totaldeandares) {
-		if(andaratual < totaldeandares) {
-			andaratual++;
-			System.out.println("o elevador subiu um andar");
-		}
-		else {
-			System.out.println("o elevador já chegou ao último andar");
-		}
-	}
-	
-	public void descer(int andaratual, int totaldeandares) {
-		if(andaratual > 0) {
+}
+
+public void descer() {
+		if (andaratual > 0) {
+			andaratual--;
 			System.out.println("o elevador desceu um andar");
+		} else {
+			System.out.println("o elevador chegou ao térreo");
 		}
-		else {
-			System.out.println("o elevador já chegou no térreo");
-		}
-	}
 	
+}
 
-	public static void main(String[] args) {
-		revisao elevador = new revisao(0, 5, 5, 0);
-		for(int i = 0; i < 7; i++) {
-			elevador.entrar(elevador.ppresentes, elevador.capacidade);
-			elevador.ppresentes++;
-		}
-		System.out.println("\n");
-		for(int i = 0; i < 6; i++) {
-			elevador.subir(elevador.andaratual, elevador.totaldeandares);
-			elevador.andaratual++;
-		}
-		System.out.println("\n");
-		for(int i = 0; i < 9; i++) {
-			elevador.descer(elevador.andaratual, elevador.totaldeandares);
-			elevador.andaratual--;
-		}
-
+public static void main(String[] args) {
+	revisao elevador = new revisao(0, 5, 5, 0);
+	for (int i = 0; i < 10; i++) {
+		elevador.entrar();
 	}
-
+	System.out.println("\n");
+	for (int i = 0; i < 10; i++) {
+		elevador.subir();
+	}
+	System.out.println("\n");
+	for (int i = 0; i < 10; i++) {
+		elevador.descer();
+	}
+}
 }
