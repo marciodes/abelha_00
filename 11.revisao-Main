@@ -1,0 +1,25 @@
+package empresa;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("qual é o nome do gerente?");
+		String nome = scanner.next();
+		System.out.println("qual é o id do gerente?");
+		int id = scanner.nextInt();
+		System.out.println("qual é o salario base do gerente?");
+		double salariobase = scanner.nextDouble();
+		System.out.println("qual é o bonus do gerente?");
+		double bonus = scanner.nextDouble();
+		
+		Gerente gerente = new Gerente(nome, id, bonus);
+		
+		gerente.calcularSalario();
+		
+
+	}
+}
