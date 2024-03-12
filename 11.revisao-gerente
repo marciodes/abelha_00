@@ -1,0 +1,22 @@
+package empresa;
+
+import java.util.Scanner;
+
+public class Gerente extends Funcionarios {
+	public double bonus;
+
+
+
+	Gerente(String nome, int id, double salariobase) {
+		super(nome, id, salariobase);
+		this.bonus = bonus;
+	}
+	
+	public void calcularSalario() {
+		System.out.println("nome " + getNome() + "\nid " + getId() + "\nsalario final: " + (getSalariobase() + bonus));
+			
+		
+	}
+
+
+}
