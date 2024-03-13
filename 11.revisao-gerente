@@ -2,18 +2,26 @@ package empresa;
 
 import java.util.Scanner;
 
-public class Gerente extends Funcionarios {
-	public double bonus;
+public class gerente extends funcionario {
+	private double bonus;
 
 
 
-	Gerente(String nome, int id, double salariobase) {
+	public double getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(double bonus) {
+		this.bonus = bonus;
+	}
+
+	gerente(String nome, int id, double salariobase, double bonus) {
 		super(nome, id, salariobase);
 		this.bonus = bonus;
 	}
 	
-	public void calcularSalario() {
-		System.out.println("nome " + getNome() + "\nid " + getId() + "\nsalario final: " + (getSalariobase() + bonus));
+	public double calcularSalario() {
+		return getBonus() + getSalariobase();
 			
 		
 	}
