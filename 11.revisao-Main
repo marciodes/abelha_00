@@ -16,10 +16,13 @@ public class Main {
 		System.out.println("qual é o bonus do gerente?");
 		double bonus = scanner.nextDouble();
 		
-		Gerente gerente = new Gerente(nome, id, bonus);
+		gerente gerente1 = new gerente(nome, id, bonus, salariobase);
 		
-		gerente.calcularSalario();
+		
+		 System.out.println("nome " + gerente1.getNome() + "\nid " + gerente1.getId() + "\nsalario final: " + gerente1.calcularSalario());
 		
 
 	}
+
+	
 }
