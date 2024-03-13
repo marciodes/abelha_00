@@ -20,7 +20,22 @@ public class Main {
 		
 		
 		 System.out.println("nome " + gerente1.getNome() + "\nid " + gerente1.getId() + "\nsalario final: " + gerente1.calcularSalario());
-		
+		 
+		 
+		 System.out.println("\n\nqual é o nome do operario?");
+		 nome = scanner.next();
+		 System.out.println("qual é o id do operario?");
+		 id = scanner.nextInt();
+		 System.out.println("qual é o salario base do operario?");
+		 salariobase = scanner.nextDouble();
+		 System.out.println("quantas horas o operario trabalhou este mês?");
+		 int horas = scanner.nextInt();
+		 System.out.println("quanto custa a hora do operario?");
+		 double valorhora = scanner.nextDouble();
+		 
+		 operario operario1 = new operario(nome, id, salariobase, horas, valorhora);
+		 
+		 System.out.println("nome " + operario1.getNome() + "\nid " + operario1.getId() + "\nsalario final: " + operario1.calcular());	 
 
 	}
 
