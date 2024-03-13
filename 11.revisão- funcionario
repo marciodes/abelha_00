@@ -1,11 +1,11 @@
 package empresa;
 
-public class Funcionarios {
+public class funcionario {
     private String nome;
 	private int id;
 	private double salariobase;
 	
-	Funcionarios(String nome, int id, double salariobase){
+	funcionario(String nome, int id, double salariobase){
 		this.nome = nome;
 		this.id = id;
 		this.salariobase = salariobase; 
