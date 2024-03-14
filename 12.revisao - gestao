@@ -1,0 +1,90 @@
+package empresa;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class gestao {
+	public int c;
+
+	gestao(int c) {
+		this.c = c;
+	}
+
+
+	ArrayList<gerente> gerentes = new ArrayList<>();
+	ArrayList<operario> operarios = new ArrayList<>();
+	
+	public void adicionarFuncionario() {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+			System.out.println("qual tipo de funcionario voce deseja adicionar?\n1-adicionar um gerente\n2-adiconar um operario\n0-voltar ao menu principal");
+			int c = scanner.nextInt();
+			
+			switch(c) {
+			case 1:
+				System.out.println("digite o nome do gerente");
+				String nome = scanner.next();
+				System.out.println("digite o id do gerente");
+				int id = scanner.nextInt();
+				System.out.println("digite o salario base do gerente");
+				double salariobase = scanner.nextDouble();
+				System.out.println("digite o bonus do gerente");
+				int bonus = scanner.nextInt();
+				
+				gerentes.add(new gerente(nome, id, salariobase, bonus));
+				
+				break;
+				
+			case 2:
+				System.out.println("digite o nome do operario");
+				nome = scanner.next();
+				System.out.println("digite o id do operario");
+				id = scanner.nextInt();
+				System.out.println("digite o salario base do operario");
+				salariobase = scanner.nextDouble();
+				System.out.println("digite as horasw trabalhadas pelo operario");
+				int horas = scanner.nextInt();
+				System.out.println("digite o valor da hora do operario");
+				double valorhora = scanner.nextInt();
+				
+				operarios.add(new operario(nome, id, salariobase, horas, valorhora));
+				
+				break;
+				
+			}
+			
+		
+	}
+	
+	public void imprimir() {
+		System.out.println("lista de gerentes:\n\n");
+		
+		for(int i = 0; i < gerentes.size(); i++) {
+		
+			System.out.println("\n\nnome: " + gerentes.get(i).getNome() + "\nid: " + gerentes.get(i).getId() + "\nsalario:" + gerentes.get(i).calcularSalario());
+		
+		}
+		for(int i = 0; i < operarios.size(); i++) {
+			
+			System.out.println("\n\nnome: " + operarios.get(i).getNome() + "\nid: " + operarios.get(i).getId() + "\nsalario:" + operarios.get(i).calcular());
+		
+		}
+	}
+	
+	public void imprimir2() {
+		for(int i = 0; i < gerentes.size(); i++) {
+			
+			System.out.println("\n\nnome: " + gerentes.get(i).getNome() + "\nid: " + gerentes.get(i).getId() + "\nsalario base:" + gerentes.get(i).getSalariobase() + "\nbonus: " + gerentes.get(i).getBonus());
+		
+		}
+        for(int i = 0; i < operarios.size(); i++) {
+			
+			System.out.println("\n\nnome: " + operarios.get(i).getNome() + "\nid: " + operarios.get(i).getId() + "\nsalario base:" + operarios.get(i).getSalariobase() + "\nhoras trabalhadas: " + operarios.get(i).getHoras() + "\nvalor da hora" + operarios.get(i).getValorhora());
+		
+		}
+	}
+
+}
+
