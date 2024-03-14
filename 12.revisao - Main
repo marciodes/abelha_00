@@ -1,0 +1,39 @@
+package empresa;
+
+import java.util.Scanner;
+
+public class Main {
+	
+
+	public static void main(String[] args) {
+		gestao gestao1 = new gestao(0);
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		int h;
+		do {
+			System.out.println("\no que você deseja?\n1-preencher os dados dos funcionários\n2-listar os funcionario e todos os dados\n3-listar os funcionarios e o salario final\n0-sair");
+			h = scanner.nextInt();
+			
+			switch(h) {
+			case 1:
+				gestao1.adicionarFuncionario();
+				
+				break;
+				
+			case 2:
+				gestao1.imprimir2();
+				
+				break;
+				
+			case 3:
+				gestao1.imprimir();
+			
+			}
+			
+		}while(h != 0);
+		
+
+	}
+
+}
