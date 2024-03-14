@@ -1,0 +1,30 @@
+package empresa;
+
+import java.util.Scanner;
+
+public class gerente extends funcionario {
+	private double bonus;
+
+
+
+	public double getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(double bonus) {
+		this.bonus = bonus;
+	}
+
+	gerente(String nome, int id, double salariobase, double bonus) {
+		super(nome, id, salariobase);
+		this.bonus = bonus;
+	}
+	
+	public double calcularSalario() {
+		return getBonus() + getSalariobase();
+			
+		
+	}
+
+
+}
