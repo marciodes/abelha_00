@@ -1,0 +1,83 @@
+public class ContaBancaria {
+	public String cliente;
+	public int numconta;
+	public float saldo;
+	public float valor;
+	public float valor2;
+	
+	public ContaBancaria(int numconta, float saldo, float valor, float valor2) {
+		this.numconta = numconta;
+		this.saldo = saldo;
+		this.valor = valor;
+		this.valor2 = valor2;
+	}	
+
+	
+	public void sacar() {
+		if(saldo > valor && valor>0) {
+			saldo -= valor;
+			System.out.println("o valor foi sacado com sucesso");
+			System.out.println("o novo valor saldo da conta é: " + saldo);
+		}
+		else {
+			System.out.println("saldo insuficiente ou valor é negativo");
+		}
+		
+	}
+	
+
+public class ContaPoupanca extends ContaBancaria{
+	
+	public int rendimento;
+
+	ContaPoupanca(int numconta, float saldo, float valor, float valor2, int rendimento){
+		super(numconta, saldo, valor, valor2);
+		this.rendimento = rendimento;
+	}
+	
+	public void CalcularNovoSaldo() {
+		System.out.println("o novo saldo com o rendimento é: " + ((saldo * (rendimento + 100 ))/100));
+	}
+
+}
+
+
+public class ContaEspecial extends ContaBancaria {
+	public float limite;
+	
+	public ContaEspecial(int numconta, float saldo, float valor, float valor2, float limite) {
+		super(numconta, saldo, valor, valor2);
+		this.limite = limite;
+	}
+	
+	public void sacarcredito() {
+		if(saldo > (limite * -1) || saldo == (limite * -1)) {
+			saldo -= valor;
+		}
+		else {
+			System.out.println("o limite do cartão foi atingido");
+		}
+	}
+
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("digite o valor inicial da conta");
+		float saldo = scanner.nextFloat();
+		System.out.println("digite o valor que você quer sacar da conta");
+		float valor = scanner.nextFloat();
+		
+		Main main = new Main();
+		
+		ContaBancaria exemplo = new ContaBancaria();
+		
+		exemplo.sacar();
+
+	}
+	
+
+}
