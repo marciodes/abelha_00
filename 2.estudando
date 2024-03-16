@@ -23,6 +23,12 @@ public class ContaBancaria {
             System.out.println("saldo insuficiente ou valor é negativo");
         }
     }
+    
+    public void depositar(float valor){
+       saldo += valor2;
+       System.out.println("o novo saldo é: " + saldo);
+
+    }
 }
 
 class ContaPoupanca extends ContaBancaria {
