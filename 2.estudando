@@ -53,7 +53,24 @@ class ContaPoupanca extends ContaBancaria {
     }
 }
 
+public class ContaEspecial extends ContaBancaria {
+	public float limite;
+	
+	public ContaEspecial(int numconta, float saldo, float valor, float valor2, float limite) {
+		super(numconta, saldo, valor, valor2);
+		this.limite = limite;
+	}
+	
+	public void sacarcredito() {
+		if(saldo > (limite * -1) || saldo == (limite * -1)) {
+			saldo -= valor;
+		}
+		else {
+			System.out.println("o limite do cartão foi atingido");
+		}
+	}
 
+}
 
 public class Main {
 
