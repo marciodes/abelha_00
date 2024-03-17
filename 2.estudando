@@ -82,36 +82,32 @@ public class Main {
         float valor = 0;
         float valor2 = 0;
         int rendimento = 0;
-        ContaPoupanca cliente = null; // inicialize o cliente fora do do-while
+        ContaPoupanca cliente = new ContaPoupanca(numconta, saldo, valor, valor2, rendimento); // instanciando o objeto cliente
         
         do {
-            System.out.println("o que você deseja?\n1-depositar um valaor na sua conta\n2-sacar um valor da sua conta\n3-ver quanto seu dinheiro renderia na poupança\n4-imprimir o valor presente na conta\n0-sair");
+            System.out.println("o que você deseja?\n1-depositar um valor na sua conta\n2-sacar um valor da sua conta\n3-ver quanto seu dinheiro renderia na poupança\n4-imprimir o valor presente na conta\n0-sair");
             c = scanner.nextInt();
             
             switch (c) {
                 case 1:
                     System.out.println("digite o valor que deseja depositar");
                     valor2 = scanner.nextFloat();
-                    cliente = new ContaPoupanca(numconta, saldo, valor, valor2, rendimento);
                     cliente.depositar();
                     break;
                 
                 case 2:
                     System.out.println("digite o valor que deseja sacar");
                     valor = scanner.nextFloat();
-                    cliente = new ContaPoupanca(numconta, saldo, valor, valor2, rendimento);
                     cliente.sacar();
                     break;
                 
                 case 3:
                     System.out.println("digite a porcentagem do rendimento (apenas números inteiros, sem caracteres)");
                     rendimento = scanner.nextInt();
-                    cliente = new ContaPoupanca(numconta, saldo, valor, valor2, rendimento);
                     cliente.calcularNovoSaldo();
                     break;
                 
                 case 4:
-                    cliente = new ContaPoupanca(numconta, saldo, valor, valor2, rendimento);
                     System.out.println("o valor presente na conta é: " + cliente.saldo);
                     break;
             }
