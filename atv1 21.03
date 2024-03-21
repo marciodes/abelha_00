@@ -1,0 +1,141 @@
+package H2o;
+
+import java.util.Scanner;
+
+public class FuncionarioRegular {
+	private String nome;
+	private int num;
+    private float salario;
+	
+    public FuncionarioRegular(String nome, int num, float salario) {
+		this.nome = nome;
+		this.num = num;
+		this.salario = salario;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public float getSalario() {
+		return salario;
+	}
+
+	public void setSalario(float salario) {
+		this.salario = salario;
+	}
+	
+	
+	public void imprimir() {
+		System.out.println("Nome: " + getNome() + "\nid: " + getNum() + "\nSalario: " + getSalario());
+		
+	}
+
+}
+
+
+
+package H2o;
+
+import java.util.Scanner;
+
+public class gerente extends FuncionarioRegular{
+	private String departamento;
+
+	public gerente(String nome, int num, float salario, String departamento) {
+		super(nome, num, salario);
+		this.departamento = departamento;
+	}
+
+	public String getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+	
+	@Override
+	public void imprimir() {
+		System.out.println("Nome: " + getNome() + "\nid: " + getNum() + "\nSalario: " + getSalario() + "\nDepartamento: " + getDepartamento());
+		
+	}
+
+
+}
+
+
+
+
+
+package H2o;
+
+import java.util.Scanner;
+
+public class Main {
+
+	private static int num;
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		
+		String nome = null;
+		float salario = 0;
+		int num = 0;
+		
+		FuncionarioRegular funci1 = new FuncionarioRegular(nome, num, salario);
+		String departamento = null;
+		gerente gerente1 = new gerente(nome, num, salario, departamento );
+		int c = 0;
+		
+		do {
+		System.out.println("o que você deseja?\n1-adicionar e imprimir um funcionário regular\n2-adicionar e imprimir um gerente\n0-sair");	
+		c = scan.nextInt();
+		
+		switch(c) {
+		case 1:
+			System.out.println("Digite o nome do funcionário: ");
+			nome = scan.next();
+			System.out.println("Digite o número de identificação do funcionário: ");
+			num = scan.nextInt();
+			System.out.println("Digite o salario do funcionário: \n");
+			salario = scan.nextFloat();
+			funci1.setNome(nome);
+			funci1.setNum(num);
+			funci1.setSalario(salario);
+			funci1.imprimir();
+		break;
+		
+		case 2:
+			System.out.println("Digite o nome do funcionário: ");
+			nome = scan.next();
+			System.out.println("Digite o número de identificação do funcionário: ");
+			num = scan.nextInt();
+			System.out.println("Digite o salario do funcionário: ");
+			salario = scan.nextFloat();
+			System.out.println("Digite o departamento do funcionário: \n");
+			departamento = scan.next();
+			
+			gerente1.setNome(nome);
+			gerente1.setNum(num);
+			gerente1.setSalario(salario);
+			gerente1.setDepartamento(departamento);
+			gerente1.imprimir();
+		}
+		
+		}while(c!=0);
+	}
+
+}
