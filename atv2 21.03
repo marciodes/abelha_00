@@ -1,0 +1,36 @@
+package H2o;
+
+import java.util.Scanner;
+
+public class CalculadoraMedia {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double soma = 0;
+        int quantidade = 0;
+
+        System.out.println("Digite os números para calcular a média. Digite 'fim' para encerrar.");
+
+        while (true) {
+            System.out.print("Digite um número: ");
+            try {
+                String input = scanner.next();
+                if (input.equals("fim")) {
+                    break;
+                }
+                double numero = Double.parseDouble(input);
+                soma += numero;
+                quantidade++;
+            } catch (NumberFormatException e) {
+                System.out.println("Valor inválido! Por favor, digite um número válido.");
+            }
+        }
+
+        if (quantidade > 0) {
+            double media = soma / quantidade;
+            System.out.println("A média dos números digitados é: " + media);
+        } else {
+            System.out.println("Nenhum número válido digitado.");
+        }
+    }
+}
