@@ -1,0 +1,37 @@
+CREATE DATABASE BANCO;
+
+USE BANCO;
+
+CREATE TABLE clientes (
+    id_cliente INT not null auto_increment PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    email VARCHAR(100) not null
+);
+CREATE TABLE pedidos (
+    id_pedido INT  not null auto_increment PRIMARY KEY,
+    id_clientefk INT,
+    descricao VARCHAR(255),
+    FOREIGN KEY (id_clientefk) REFERENCES clientes(id_cliente)
+);
+INSERT INTO clientes (nome, email) VALUES ('Sami','SamiDark@gmail.com');
+INSERT INTO clientes (nome, email) VALUES ('silvio','silviok2@gmail.com');
+INSERT INTO clientes (nome, email) VALUES ('Pedro','Pedroallan@gmail.com');
+INSERT INTO clientes (nome, email) VALUES ('Gabs','tropadocalvo@gmail.com');
+
+INSERT INTO pedidos (id_clientefk, descricao) VALUES (1,'Pedido de conta');
+INSERT INTO pedidos (id_clientefk, descricao) VALUES (1,'faz o L');
+INSERT INTO pedidos (id_clientefk, descricao) VALUES (3,'tropa dos originais');
+INSERT INTO pedidos (id_clientefk, descricao) VALUES (4,'mestre pou');
+
+
+drop database BANCO;
+select * from clientes;
+select * from pedidos WHERE Id_clientefk = 1;
+select nome as "nome do cliente", email from clientes c WHERE email = "Pedroallan@gmail.com";
+select*from clientes, pedidos where Id_clientefk = id_cliente; 
+
+Select c.nome AS nome_cliente, p.*
+from clientes c
+INNER JOIN pedidos p ON c.Id_cliente = p.Id_clientefk
+WHERE c.Id_cliente = 1;
+
