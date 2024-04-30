@@ -1,0 +1,49 @@
+create database exercicio;
+
+use exercicio;
+
+create table duplicata(
+numero int not null primary key,
+nome varchar(40) not null,
+valor double not null,
+vencimento date not null,
+banco varchar(50) not null 
+);
+
+INSERT INTO duplicata (numero, nome, valor, vencimento, banco) VALUES (100100,'ABC PAPELARIA', 5000, '2017-01-20', 'ITAU'),
+(100110,'LIVRARIA FERNANDES', 2500, '2017-01-22', 'ITAU'),
+(100120,'LIVRARIA FERNANDES', 1500, '2016-10-15', 'BRADESCO'),
+(100130,'ABC PAPELARIA', 8000, '2016-10-15', 'SANTANDER'),
+(200120,'LER E SABER', 10500, '2018-04-26', 'BANCO DO BRASIL'),
+(200125,'LIVROS E CIA', 2000, '2018-04-26', 'BANCO DO BRASIL'),
+(200130,'LER E SABER', 11000, '2018-09-26', 'ITAU'),
+(250350,'PAPELARIA SILVA', 1500, '2018-01-26', 'BRADESCO'),
+(250360,'LIVROS MM', 500, '2018-12-18', 'SANTANDER'),
+(250370,'LIVROS MM', 3400, '2018-04-26', 'SANTANDER'),
+(250380,'PAPELARIA SILVA', 3500, '2018-04-26', 'BANCO DO BRASIL'),
+(453360,'LIVROS E CIA', 1500, '2018-06-15', 'ITAU'),
+(453365,'LIVROS MM', 5400, '2018-06-15', 'BRADESCO'),
+(453370,'PAPELARIA SILVA', 2350, '2017-12-27', 'ITAU'),
+(453380,'LIVROS E CIA', 1550, '2017-12-27', 'BANCO DO BRASIL'),
+(980130,'ABC PAPELARIA', 4000, '2016-12-11', 'ITAU'),
+(770710,'LIVRARIA FERNANDES', 2500, '2016-11-15', 'SANTANDER'),
+(985001,'ABC PAPELARIA', 3000, '2016-09-11', 'ITAU'),
+(985002,'PAPEL E AFINS', 2500, '2016-03-12', 'SANTANDER'),
+(888132,'LER E SABER', 2500, '2017-03-05', 'ITAU');
+
+
+desc duplicata;
+
+-- 1-Listar nome,vencimento e valor de cada duplicata da tabela
+select d.nome, d.vencimento, d.valor from duplicata d;
+
+-- 2-Apresentar o número das duplicatas depositadas no banco Itaú
+select numero from duplicata c WHERE banco = "ITAU";
+
+-- 4-Quais são as duplicatas (número, vencimento, valor e nome) que vencem no ano de 2017.
+select d.numero, d.nome, d.valor, d.vencimento from duplicata d where year(vencimento) = "2017";
+
+-- 5.Apresentar as duplicatas (número, vencimento, valor e nome) que não estão depositadas nos bancos Itaú eSantander.
+select c.nome, c.vencimento, c.valor from duplicata c WHERE banco = "ITAU";
+
+drop database exercicio;
