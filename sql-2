@@ -1,0 +1,40 @@
+Create database vendas;
+use vendas;
+
+Create table produto(
+codigo_produto int not null auto_increment primary key,
+descricao_produto varchar(30) not null,
+preco_produto float not null
+);
+
+create table nota_fiscal(
+numero_nf int not null auto_increment primary key,
+data_nf Date not null,
+valor_nf float not null
+);
+
+create table itens(
+produto_codigo_produto int,
+nota_fiscal_numero int,
+num_item int,
+qtd int,
+FOREIGN KEY (produto_codigo_produto) REFERENCES produto(codigo_produto),
+FOREIGN KEY (nota_fiscal_numero) REFERENCES nota_fiscal(numero_nf)
+);
+
+alter table produto modify column descricao_produto varchar(50) not null;
+alter table nota_fiscal add column ICMS float not null after numero_nf;
+alter table produto add column peso float not null;
+
+desc produto;
+desc nota_fiscal;
+
+alter table nota_fiscal rename column valor_nf to valortotal_nf;
+alter table nota_fiscal drop column data_nf;
+drop table itens;
+rename table nota_fiscal to Venda;
+
+select*from produto;
+
+drop database vendas;
+
