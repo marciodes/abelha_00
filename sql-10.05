@@ -1,0 +1,126 @@
+
+Ativiade pontuada (BANCO DE DADOS) - individual
+Celso Barreto da Silva
+•
+13:16
+1 ponto
+Data de entrega: 23:59
+Prezados,
+Segue atividade pontuada para ser desenvolvida individualmente em sala
+
+Abraço
+
+Sucelso
+
+EXERCICIO DE FIXAÇÃO.docx
+Word
+Comentários da turma
+Seus trabalhos
+Atribuído
+
+10.05.sql
+SQL
+Comentários particulares
+create database loja_virtual;
+
+use loja_virtual;
+
+create table produtos(
+id int not null auto_increment primary key,
+nome varchar(50) not null,
+descricao varchar(50) not null,
+preco decimal(10,2) not null,
+categoria varchar(50)
+);
+
+create table clientes(
+id_consumidor int auto_increment primary key,
+nomes varchar(50) not null,
+idade int not null,
+idfk int not null,
+foreign key (idfk) references produtos(id)
+);
+
+insert into clientes(nomes, idade, idfk) values("marcio", 17, 2), 
+("marcio", 17, 4), 
+("Carla", 20, 2),
+("Janaina", 34, 5)
+;
+
+/*
+3. no gerenciamento de tabelas, os comandos CREATE, ALTER E DROP no sql servem respectivamente para criar a tabela, alterar os dados e a estrutura da tabela, e excluir a tabela e/ou colunas da tabela.
+
+4. varchar: utilizado para dados que contêm uma cadeia de caracteres, ou seja, "texto". Um exemplo de um dado
+em varchar em uma tabela, é a linha "nome varchar(50) not null", onde uma variável "nome" do tipo varchar, armazena uma cadeia de caracteres de tamanho máximo 50.alter
+Int ou Integer: Essa varável ocupa 4 bytes da memória, e é utilizada para armazenar números inteiros, como no exemplo
+a seguir "idade int not null", que demostra uma linha da tabela que contêm uma variável "idade", que armazena dados do tipo inteiro.
+Float: Essa varável, diferente do int, é utilizada para armazenar números decimais, como no exemplo "preco float not null", que representa uma linha de uma tabela que armazena
+uma variável preco do tipo float, pois pode ser um número decimal.
+Decimal: também é utilizado para guardar números decimais, mas diferente do float, pode ser especificado a quantidade de números que você deseja antes e depois da virgula, como no exemplo "preco decimal(10,2) not null".
+Double: pode ser utilizado para armazenar números inteiros e decimais, mas diferente das outras, pode armagenar números maiores, pois ocupa 8 bytes, exemplo: "salario double not null".
+Date: como o nome já sugere, o Date armazena datas, com o padrão dos EUA.
+
+5.Os principais tipos de primary key são: primária, candidata, substituta, estrangeira, composta, alternativa, natural.
+
+*/
+
+-- 6
+insert into produtos(nome, descricao, preco, categoria) values("jarra", "utensilio utilizado para armagenar liquido", 24,"utensilho doméstico"),
+("monitor", "utilizado para visualizar as ações no computador", 1200, "eletrônico"),
+("cadeira", "utilizado para se acomodar em um local", 300, "utensilho doméstico"),
+("celular", "iphone 12", 2700, "eletrônico"),
+("carro", "bmw i8 2024", 500000, "automotivos")
+;
+
+-- 7
+select*from produtos;
+
+-- 8
+select nome, descricao, preco, categoria from produtos where categoria = "eletrônico";
+
+-- 9
+select nome, descricao, preco, categoria from produtos order by nome;
+
+-- 10
+select nome, descricao, preco, categoria from produtos order by preco desc limit 3;
+
+-- 11
+update produtos set preco = 59.99 where id = 2;
+
+-- 12
+delete from produtos where id = 4; 
+
+/* 13. para utilizar o update basta colocar update + a tabela que receberá os dados + as demais especificações, como no exemplo "update produtos set preco = 59.99 where id = 2".
+ Já o delete, basta colocar delete + tabela que terá o dado excluido + especificações.
+*/
+
+/*14 -(=) é usada para retornar registros onde o valor de uma coluna é igual a um valor especificado.
+-(<> ou !=) é usada para retornar registros onde o valor de uma coluna é diferente de um valor especificado.
+-maior que (>) e menor que (<) é usada para retornar registros onde o valor de uma coluna é maior ou menor que um valor especificado.
+-maior ou igual a (>=) e menor ou igual a (<=) é usada para retornar registros onde o valor de uma coluna é maior ou igual a um valor especificado, ou menor ou igual a um valor especificado.
+-IN: é usada para retornar registros onde o valor de uma coluna está presente em um conjunto de valores especificados.
+-LIKE: é usada para retornar registros onde o valor de uma coluna corresponde a um padrão especificado
+-BETWEEN é útil quando você deseja recuperar registros dentro de um intervalo específico de valores
+*/
+
+-- 15
+SELECT*FROM clientes
+INNER JOIN produtos ON id = idfk
+WHERE id = 2;
+
+-- 16
+select sum(preco)/count(*) as media from produtos;
+
+-- 17
+select categoria, count(*) as qtd from produtos group by categoria; 
+
+-- 18
+select max(preco) as maiorvalor, min(preco) as menorvalor from produtos;
+
+-- 19
+select categoria, sum(preco) as soma, count(*) as qtd_de_produtos_cadastrados, avg(preco) as media_de_precos, max(preco) as maior_preco from produtos group by categoria;
+
+-- 20
+select*from produtos where preco > (select avg(preco) from produtos);
+
+drop database loja_virtual;
